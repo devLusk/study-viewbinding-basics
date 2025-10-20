@@ -27,10 +27,12 @@ class MainActivity : AppCompatActivity() {
 
         val mainText = textView.text
         button.setOnClickListener {
+            button.isEnabled = false
             lifecycleScope.launch {
                 textView.text = "Text changed with findViewById"
                 delay(3000) // coroutines suspend function
                 textView.text = mainText
+                button.isEnabled = true
             }
         }
     }
